@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect } from "react-router-dom";
  
 import { isAuthenticated } from "./services/auth";
 import Index from "./pages/Index";
+import PaginalPrincipal from "./pages/PaginalPrincipal";
 
 const PrivateRoute = ({ component: Component, ...rest }) => (
   <Route
@@ -21,9 +22,10 @@ const Routes = () => (
   <BrowserRouter>
     <Fragment>
       <Switch>
+        <PrivateRoute path="/home" component={PaginalPrincipal} />
+        
         <Route path="/" component={Index} />
-        <Route path="*" component={() => <h1>Page not found</h1>} />
-
+        
       </Switch>
     </Fragment>
   </BrowserRouter>
